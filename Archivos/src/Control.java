@@ -20,7 +20,7 @@ public class Control {
 
             if (file.createNewFile()) {
                 JOptionPane.showMessageDialog(null, "Archivo creado con exito!!");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "El archivo ya existe");
             }
 
@@ -58,24 +58,35 @@ public class Control {
             BufferedReader breader = new BufferedReader(reader);
 
             readLine = breader.readLine();
-            while (readLine!=null) {
+            while (readLine != null) {
                 System.out.println(readLine);
                 readLine = breader.readLine();
             }
 
             breader.close();
-            
-          
-            
 
         } catch (FileNotFoundException e) {
-            
-         
+
         } catch (IOException e) {
-           
+
         }
 
     }
 
+
+    public void eliminarArchivo(String path) {
+
+        file = new File(path);
+
+        if (file.exists()) {
+
+            file.delete();
+            JOptionPane.showMessageDialog(null, "Archivo eliminado con exito");
+        } else {
+            JOptionPane.showMessageDialog(null, "El Archivo no existe");
+        }
+
+    }
+    
 
 }
